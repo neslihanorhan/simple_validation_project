@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<title>Hastane Kayıt</title>
+</head>
+<body>
+	<div class="container my-4 d-flex justify-content-center">
+		<div class="col-md-7">
+			<div class="card">
+				<div class="card-header font-weight-bold">Doktor Kaydı Oluştur</div>
+				<div class="card-body">
+					<form id="form" class="needs-validation">
+						<div class="form-group">
+							<label for="firstName" class="mb-0">Ad</label>
+							<input type="text" class="form-control" id="firstName" placeholder="Adınızı girin." pattern="[a-zA-ZçğıöşüÇĞİÖŞÜ\s]+" required>
+							<div class="invalid-feedback">
+								Lütfen adınızı girdiğinizden emin olun.
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="lastName" class="mb-0">Soyad</label>
+							<input type="text" class="form-control" id="lastName" placeholder="Soyadınızı girin." pattern="[a-zA-ZçğıöşüÇĞİÖŞÜ\s]+" required>
+							<div class="invalid-feedback">
+								Lütfen soyadınızı girdiğinizden emin olun.
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="email" class="mb-0">E-mail Adresi</label>
+								<input type="email" class="form-control" id="email" placeholder="Mail adresinizi girin." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+								<div class="invalid-feedback">
+									Geçerli bir mail adresi değil!
+								</div>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="phone" class="mb-0">Cep Telefonu</label>
+								 <input type="text" class="form-control" id="phone" placeholder="İletişim numaranızı girin." data-inputmask="'mask': '0599 999 99 99'" pattern="05[0-9]{2} [0-9]{3} [0-9]{2} [0-9]{2}" required>
+								<small class="form-text text-muted">Format: 0 (5xx) xxx-xx-xx</small>
+								<div class="invalid-feedback">
+									Telefon numarası 11 haneli olmalı!
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="datepicker" class="mb-0">Doğum Tarihi</label>
+							<input type="date" class="form-control datepicker" id="datepicker" min="1940-01-01" max="2020-12-31" required>
+							<div class="invalid-feedback">
+								Bir seçim yaptığınızdan emin olun.
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="university" class="mb-0">Üniversite</label>
+							<input type="text" class="form-control" id="university" placeholder="Mezun olduğunuz üniversiteyi yazın." pattern="[a-zA-Z0-ZçğıöşüÇĞİÖŞÜ\s]+" required>
+							<div class="invalid-feedback">
+								Alanı doldurduğunuzdan emin olun.
+							</div>
+						</div>
+						<div id="select" class="form-row">
+							<div class="form-group col-md-6">
+								<label for="branch" class="mb-0">Branş</label>
+								<select class="form-control" id="branch" required>
+									<option selected disabled value="">Uzmanlık alanınızı seçin.</option>
+									<option>İç Hastalıkları</option>
+									<option>Kardiyoloji</option>
+									<option>Göğüs Hastalıkları</option>
+									<option>Enfeksiyon Hastalıkları</option>
+									<option>Nöroloji</option>
+									<option>Psikiyatri</option>
+									<option>Çocuk Sağlığı ve Hastalıkları</option>
+									<option>Dermatoloji</option>
+									<option>Fiziksel Tıp ve Rehabilitasyon</option>
+									<option>Genel Cerrahi</option>
+									<option>Çocuk Cerrahisi</option>
+									<option>Göğüs Cerrahisi</option>
+									<option>Kalp ve Damar Cerrahisi</option>
+									<option>Beyin ve Sinir Cerrahisi</option>
+									<option>Plastik, Rekonstrüktif ve Estetik Cerrahi</option>
+									<option>Ortopedi ve Travmatoloji</option>
+									<option>Üroloji</option>
+									<option>Kulak-Burun-Boğaz Hastalıkları</option>
+									<option>Göz Hastalıkları</option>
+									<option>Kadın Hastalıkları ve Doğum</option>
+								</select>
+								<div class="invalid-feedback">
+									Bir seçim yaptığınızdan emin olun.
+								</div>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="expertLevel" class="mb-0">Uzmanlık Seviyesi</label>
+								<select class="form-control" id="expertLevel" required>
+									<option selected disabled value="">Uzmanlık seviyenizi seçin.</option>
+									<option>Pratisyen</option>
+									<option>Uzman Doktor</option>
+									<option>Operatör Doktor</option>
+									<option>Yardımcı Doçent</option>
+									<option>Doçent</option>
+									<option>Profesör</option>
+								</select>
+								<div class="invalid-feedback">
+									Bir seçim yaptığınızdan emin olun.
+								</div>
+							</div>
+						</div>
+						<div class="custom-file mb-3">
+							<input type="file" class="custom-file-input" id="cv" required>
+							<label for="cv" class="custom-file-label" id="cvFile">CV'nizi ekleyin.</label>
+							<div class="invalid-feedback">
+								Lütfen CV'nizi ekleyin.
+							</div>
+						</div>
+						<div class="text-center">
+							<button type="button" class="btn btn-primary w-50" value="Kayıt Ol" onclick="register()">Kayıt Ol</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="loginAlert" data-backdrop="static" tabindex="-1" aria-labelledby="loginAlertLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="loginAlertLabel">Başarılı!</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body text-center">
+						<h6>Doktor Kaydı Oluşturma</h6>
+						<p>Kaydınız başarı ile oluşturulmuştur.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+						<a href="hospital_list.html" role="button" class="btn btn-primary">Doktor Listesine Git</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>
